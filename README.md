@@ -36,6 +36,8 @@ $this->registerCss($cssString);
 ```php
 public function actionAvatar()
 {
+    \Yii::$app->response->format=Response::FORMAT_JSON;
+    
     // 注意按需分配图片上传地址。
     $clip = new ClipUploadAvatar(
         isset($_POST['avatar_src']) ? $_POST['avatar_src'] : null,
@@ -43,7 +45,6 @@ public function actionAvatar()
         isset($_FILES['avatar_file']) ? $_FILES['avatar_file'] : null,
         \Yii::getAlias('@webroot').'/img/avatar'
     );
-    
     $response = array(
         'state'  => 200,
         'message' => $clip->getMsg(),
@@ -52,7 +53,7 @@ public function actionAvatar()
     
     // ...存储数据库等
 
-    echo json_encode($response);
+    return $response;
 }
 ```
 
