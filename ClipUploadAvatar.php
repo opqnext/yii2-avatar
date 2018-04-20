@@ -7,7 +7,7 @@ namespace opqnext\avatar;
  * 只改了类名，并且格式化了下，自己也懒得写O(∩_∩)O哈哈~
  */
 
-class ClipAvatar
+class ClipUploadAvatar
 {
     private $src;
     private $data;
