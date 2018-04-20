@@ -34,20 +34,26 @@ $this->registerCss($cssString);
 方法内容如下：
 
 ```php
-// 注意按需分配图片上传地址。
-$clip = new ClipUploadAvatar(
-    isset($_POST['avatar_src']) ? $_POST['avatar_src'] : null,
-    isset($_POST['avatar_data']) ? $_POST['avatar_data'] : null,
-    isset($_FILES['avatar_file']) ? $_FILES['avatar_file'] : null,
-    \Yii::getAlias('@webroot').'/img/avatar'
-);
-$response = array(
-    'state'  => 200,
-    'message' => $clip->getMsg(),
-    'result' => \Yii::getAlias('@web').'/img/avatar/'.$clip->getResult()
-);
+public function actionAvatar()
+{
+    // 注意按需分配图片上传地址。
+    $clip = new ClipUploadAvatar(
+        isset($_POST['avatar_src']) ? $_POST['avatar_src'] : null,
+        isset($_POST['avatar_data']) ? $_POST['avatar_data'] : null,
+        isset($_FILES['avatar_file']) ? $_FILES['avatar_file'] : null,
+        \Yii::getAlias('@webroot').'/img/avatar'
+    );
+    
+    $response = array(
+        'state'  => 200,
+        'message' => $clip->getMsg(),
+        'result' => \Yii::getAlias('@web').'/img/avatar/'.$clip->getResult()
+    );
+    
+    // ...存储数据库等
 
-echo json_encode($response);die;
+    echo json_encode($response);die;
+}
 ```
 
 如有问题，欢迎加入 QQ群:452209691 共同探讨。
