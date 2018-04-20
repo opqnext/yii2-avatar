@@ -52,7 +52,7 @@ public function actionAvatar()
     
     // ...存储数据库等
 
-    echo json_encode($response);die;
+    echo json_encode($response);
 }
 ```
 
