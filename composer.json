@@ -1,6 +1,6 @@
 {
     "name": "opqnext/yii2-avatar",
-    "description": "yii2上传头像小部件",
+    "description": "yii2 upload avatar widget",
     "type": "library",
     "keywords": ["php","yii2","avatar"],
     "license": "MIT",
